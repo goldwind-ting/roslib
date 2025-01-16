@@ -1,0 +1,22 @@
+[package]
+name = "roslib"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "A TCP/IP stack designed for bare-metal, real-time systems without a heap."
+keywords = ["ip", "tcp", "udp", "ethernet", "network", "sync"]
+categories = ["embedded", "network-programming"]
+license = "0BSD"
+# Each example should have an explicit `[[example]]` section here to
+# ensure that the correct features are enabled.
+autoexamples = false
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(fuzzing)'] }
+
+[dependencies]
+managed = { version = "0.8", default-features = false, features = ["map", "alloc"] }
+byteorder = { version = "1.0", default-features = false }
+log = "0.4.22"
+bitflags = "2.6.0"
+heapless = "0.8"
